@@ -15,9 +15,16 @@ app.get('/usuario', function(req, res) {
 });
 app.post('/usuario', function(req, res) {
     let body = req.body;
-    res.json({
-        persona: body
-    });
+    if (body.nombre === undefined) {
+        res.status(400).json({
+            ok: false,
+            mensaje: 'Nombre es requerido.'
+        });
+    } else {
+        res.json({
+            persona: body
+        });
+    }
 });
 app.put('/usuario/:idUsuario', function(req, res) {
     let id = req.params.idUsuario;
