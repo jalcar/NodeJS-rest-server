@@ -1,0 +1,31 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+app.get('/usuario', function(req, res) {
+    res.json('GET Usuario');
+});
+app.post('/usuario', function(req, res) {
+    let body = req.body;
+    res.json({
+        persona: body
+    });
+});
+app.put('/usuario/:idUsuario', function(req, res) {
+    let id = req.params.idUsuario;
+    res.json(`PUT Usuario: ${ id }`);
+});
+app.delete('/usuario/:idUsuario', function(req, res) {
+    let id = req.params.idUsuario;
+    res.json(`DELETE Usuario: ${ id }`);
+});
+
+app.listen(3000, () => {
+    console.log('escuchando puerto 3000.');
+});
