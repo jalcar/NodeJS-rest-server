@@ -16,7 +16,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'DES';
 // ==================
 let cadCon;
 if (process.env.NODE_ENV !== 'DES') {
-    cadCon = 'mongodb+srv://userdb:z2uPJOelUknXMqYK@cluster0-nzv7b.mongodb.net/dbclientes';
+    // cadCon = 'mongodb+srv://userdb:z2uPJOelUknXMqYK@cluster0-nzv7b.mongodb.net/dbclientes';
+    cadCon = process.env.MONGODB_URL;
 } else {
     cadCon = 'mongodb://localhost:27017/cafe';
 }
