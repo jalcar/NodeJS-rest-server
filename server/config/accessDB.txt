@@ -1,0 +1,6 @@
+Credenciales de acceso a BD
+===========================
+usuario: userdb
+password: z2uPJOelUknXMqYK
+
+mongodb+srv://userdb:z2uPJOelUknXMqYK@cluster0-nzv7b.mongodb.net/dbclientes
