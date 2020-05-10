@@ -3,9 +3,10 @@ const bcrypt = require('bcrypt');
 const _ = require('underscore');
 
 const Usuario = require('../models/usuario.model');
+const { verificaToken, verifica_AdminRole } = require('../middlewares/autenticacion');
 const app = express();
 
-app.get('/usuario', function(req, res) {
+app.get('/usuario', verificaToken, (req, res) => {
     // res.json('GET Usuario');
 
     let desde = req.query.desde || 0;
@@ -39,7 +40,7 @@ app.get('/usuario', function(req, res) {
 
         });
 });
-app.post('/usuario', function(req, res) {
+app.post('/usuario', [verificaToken, verifica_AdminRole], (req, res) => {
     let body = req.body;
     // if (body.nombre === undefined) {
     //     res.status(400).json({
@@ -76,7 +77,7 @@ app.post('/usuario', function(req, res) {
             }
         });
 });
-app.put('/usuario/:idUsuario', function(req, res) {
+app.put('/usuario/:idUsuario', [verificaToken, verifica_AdminRole], (req, res) => {
     let id = req.params.idUsuario;
     let body = req.body;
 
@@ -98,7 +99,7 @@ app.put('/usuario/:idUsuario', function(req, res) {
     });
 
 });
-app.delete('/usuario/:idUsuario', function(req, res) {
+app.delete('/usuario/:idUsuario', [verificaToken, verifica_AdminRole], (req, res) => {
     let id = req.params.idUsuario;
 
     // ELIMINACION FISICA DEL REGISTRO

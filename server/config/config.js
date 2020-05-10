@@ -22,3 +22,17 @@ if (process.env.NODE_ENV !== 'DES') {
     cadCon = 'mongodb://localhost:27017/cafe';
 }
 process.env.URLDB = cadCon;
+
+// ==================
+// ENTORNO
+// process.env.CADUCIDAD -> ES CREADA POR NOSOTROS | RECONOCIDA POR EL SERVIDOR WEB (HEROKU)
+// TIEMPO DE DURACION EN SEGUNDOS PARA EL TOKEN
+// ==================
+process.env.CADUCIDAD = 60 * 60 * 24 * 30;
+
+// ==================
+// ENTORNO
+// process.env.SEED -> ES CREADA POR NOSOTROS | RECONOCIDA POR EL SERVIDOR WEB (HEROKU)
+// SEMILLA PARA LA GENERACION DEL TOKEN
+// ==================
+process.env.SEED = process.env.SEED || 'semilla-del-token-DES';
