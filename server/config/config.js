@@ -36,3 +36,10 @@ process.env.CADUCIDAD = 60 * 60 * 24 * 30;
 // SEMILLA PARA LA GENERACION DEL TOKEN
 // ==================
 process.env.SEED = process.env.SEED || 'semilla-del-token-DES';
+
+// ==================
+// ENTORNO
+// process.env.CLIENT_ID -> ES CREADA POR NOSOTROS | RECONOCIDA POR EL SERVIDOR WEB (HEROKU)
+// CLIENT_ID DE GOOGLE
+// ==================
+process.env.CLIENT_ID = process.env.CLIENT_ID || '989751678257-dph129ht31v3e4li6pno2n0ikteltngb.apps.googleusercontent.com';
