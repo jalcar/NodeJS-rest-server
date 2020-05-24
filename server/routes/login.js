@@ -139,7 +139,7 @@ app.post('/google', async(req, res) => {
 
                 return res.json({
                     ok: true,
-                    usuario: usuarioBD,
+                    usuario: usuarioDB,
                     token
                 });
             });
