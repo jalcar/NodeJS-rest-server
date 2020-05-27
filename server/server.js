@@ -2,6 +2,8 @@ require('./config/config');
 
 const mongoose = require('mongoose');
 const express = require('express');
+const path = require('path');
+
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -14,6 +16,9 @@ app.use(bodyParser.json());
 
 // Importacion global de funcionalidades
 app.use(require('./routes/index'));
+
+// Habilitar carpeta PUBLIC
+app.use(express.static(path.resolve(__dirname, '../public')));
 
 mongoose.connect(process.env.URLDB, {
         useNewUrlParser: true,
